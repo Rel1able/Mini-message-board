@@ -1,5 +1,20 @@
-<div>
-    <%= message.text %>
-    <%= message.user %>
-    <%= message.added %>
-</div>
+
+<html>
+    <head>
+        <title>Message Details</title>
+        <link rel="stylesheet" href="/styles.css">
+    </head>
+    <body>
+          <%- include("navbar")%>
+            <div class="msgDetails">
+                <div><%= message.user %></div>
+                <div><%= message.text %></div>
+                <div class="date"><%= message.added %></div>
+                
+            </div>
+            <%- include("footer")%>
+
+    </body>
+</html>
+
+

@@ -4,10 +4,20 @@
         <link rel="stylesheet" href="/styles.css"/>
     </head>
     <body>
-        <form method="POST" action="/new">
-            <input type="text" placeholder="Enter your name" name="username"/>
-            <input type="text" placeholder="Enter your message" name="messageText"/>
-            <button type="submit">Submit</button> 
-        </form>
+
+            <%- include("navbar")%>
+            <form method="POST" action="/new">
+                <div class="inputField">
+                    <label>Name</label>
+                    <input type="text" placeholder="Enter your name" name="username"/>
+                </div>
+                <div class="inputField">
+                    <label>Message</label>
+                    <input type="text" placeholder="Enter your message" name="messageText"/>
+                </div>
+                <button class="btn" type="submit">Submit</button> 
+            </form>
+            <%- include("footer")%>
+
     </body>
 </html>

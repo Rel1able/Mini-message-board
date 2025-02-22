@@ -4,18 +4,21 @@
         <link rel="stylesheet" href="/styles.css"/>
     </head>
     <body>
-    <a href="/new">Add new message</a>
-    <ul>
-    <% messages.map((message, index) => {%>
-        <li>
-            <a href="/<%= index %>">
-                <%= message.text%>
-                <%= message.user%>
-                <%= message.added%>
-            </a>
-        </li>
-    <%})%>
-</ul>
-</body>
+
+            <%- include ("navbar")%>
+            <ul class="container">
+                <% messages.map((message, index) => {%>
+                    <li class="info-card">
+                        <a href="/<%= index %>">
+                            <%= message.text%>
+                            <%= message.user%>
+                            <%= message.added%>
+                        </a>
+                    </li>
+                <%})%>
+            </ul>
+
+        <%- include("footer")%>
+    </body>
 </html>
 
