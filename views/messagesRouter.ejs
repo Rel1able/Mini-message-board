@@ -7,15 +7,18 @@
 
             <%- include ("navbar")%>
             <ul class="container">
-                <% messages.map((message, index) => {%>
-                    <li class="info-card">
-                        <a href="/<%= index %>">
-                            <%= message.text%>
-                            <%= message.user%>
-                            <%= message.added%>
-                        </a>
-                    </li>
-                <%})%>
+                <% if(messages){%>
+                    <% messages.map((message, index) => {%>
+                        <li class="info-card">
+                            <a href="/<%= index+1 %>">
+                                <%= message.text%>
+                                <%= message.username%>
+                                <%= message.added%>
+                            </a>
+                        </li>
+                    <%})%>
+                <%}%>
+                
             </ul>
 
         <%- include("footer")%>

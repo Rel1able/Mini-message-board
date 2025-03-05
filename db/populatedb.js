@@ -4,25 +4,28 @@ require("dotenv").config();
 const SQL = `
 CREATE TABLE IF NOT EXISTS messages (
 id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-message VARCHAR (255)
-);
+text VARCHAR (255),
+username VARCHAR (255),
+added TIMESTAMP
+);`
 
-INSERT INTO messages (message)
+const INSERT_SQL = `INSERT INTO messages (text, username, added)
 VALUES
-    ('Hello'),
-    ('What'),
-    ('How');
+    ('Hi there', 'Amando', ($1)),
+    ('Hello World', 'Charles', ($2)),
+    ('Yikes', 'Sherry', ($3)),
+    ('Yahoo', 'Jia', ($4));
 `;
-
+let date = new Date();
 async function main() {
     console.log("seeding...");
-    console.log(process.env.DB_STRING);
     const client = new Client({
         connectionString: process.env.DB_STRING
     })
 
     await client.connect();
     await client.query(SQL);
+    await client.query(INSERT_SQL, [date, date, date, date])
     await client.end();
     console.log("done");
 }
