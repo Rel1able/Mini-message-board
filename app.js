@@ -14,6 +14,7 @@ app.use("/new", newMessageRouter);
 app.use("/", messagesRouter);
 
 
+app.get('/favicon.ico', (req, res) => res.status(204).end());
 
 
 const PORT = process.env.PORT || 3000;
