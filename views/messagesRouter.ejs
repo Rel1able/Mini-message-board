@@ -10,7 +10,7 @@
                 <% if(messages){%>
                     <% messages.map((message, index) => {%>
                         <li class="info-card">
-                            <a href="/<%= index+1 %>">
+                            <a href="/<%= message.id %>">
                                 <%= message.text%>
                                 <%= message.username%>
                                 <%= message.added%>
